@@ -1,0 +1,15 @@
+syntax = "proto3";
+package cosmosmychain.cosmosmychain;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/chunlinwang/cosmos-mychain/x/cosmosmychain/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "cosmosmychain/x/cosmosmychain/Params";
+  option (gogoproto.equal) = true;
+
+  
+}

@@ -1,0 +1,48 @@
+validation: sovereign
+version: 1
+accounts:
+- name: alice
+  coins:
+  - 20000token
+  - 200000000stake
+- name: bob
+  coins:
+  - 10000token
+  - 100000000stake
+faucet:
+  name: bob
+  coins:
+  - 5token
+  - 100000stake
+client:
+  typescript:
+    path: ts-client
+  hooks:
+    path: react/src/hooks
+  openapi:
+    path: docs/static/openapi.yml
+genesis:
+  consensus_params:
+    block:
+      max_bytes: "22020096"
+      max_gas: "-1"
+    evidence:
+      max_age_duration: "172800000000000"
+      max_age_num_blocks: "100000"
+    validator:
+      pub_key_types:
+      - ed25519
+  distribution:
+    base_proposer_reward: "0.010000000000000000"
+    bonus_proposer_reward: "0.040000000000000000"
+    community_tax: "0.020000000000000000"
+  mint:
+    mint_denom: stake
+  staking:
+    bonded_denom: stake
+    min_commission_rate: "0.050000000000000000"
+validators:
+- name: alice
+  bonded: 100000000stake
+  app:
+    minimum-gas-prices: 0.025stake
